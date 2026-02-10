@@ -909,7 +909,7 @@ export default function SpiderWeb({ config }: { config: SpiderConfig }) {
     return (
         <div
             ref={containerRef}
-            className="relative w-full h-full min-h-screen overflow-hidden cursor-none"
+            className="relative w-full h-full min-h-screen overflow-hidden"
             style={{
                 background: 'transparent',
             }}
