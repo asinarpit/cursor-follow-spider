@@ -51,7 +51,7 @@ const ControlSlider = ({
     onChange: (val: number) => void
 }) => {
     return (
-        <div className="flex flex-col gap-2 mb-4">
+        <div className="flex flex-col gap-1.5 md:gap-2 mb-3 md:mb-4">
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                     <Icon size={14} className="text-zinc-400 dark:text-zinc-500" />
@@ -84,7 +84,7 @@ export default function SpiderControls({ config, onChange }: SpiderControlsProps
     };
 
     return (
-        <div className="fixed top-6 left-6 z-50 pointer-events-none">
+        <div className="fixed top-4 left-4 md:top-6 md:left-6 z-50 pointer-events-none">
             <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -92,15 +92,15 @@ export default function SpiderControls({ config, onChange }: SpiderControlsProps
             >
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="group mb-4 flex items-center gap-3 px-5 py-2.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl hover:bg-white dark:hover:bg-zinc-900 transition-all active:scale-95"
+                    className="group mb-4 flex items-center gap-2 md:gap-3 px-4 py-2 md:px-5 md:py-2.5 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-xl md:rounded-2xl shadow-2xl hover:bg-white dark:hover:bg-zinc-900 transition-all active:scale-95"
                 >
                     <motion.div
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         className="text-zinc-500 dark:text-zinc-400"
                     >
-                        {isOpen ? <X size={18} /> : <Settings2 size={18} />}
+                        {isOpen ? <X size={16} className="md:w-[18px] md:h-[18px]" /> : <Settings2 size={16} className="md:w-[18px] md:h-[18px]" />}
                     </motion.div>
-                    <span className="text-sm font-bold text-zinc-800 dark:text-zinc-200 tracking-tight">
+                    <span className="text-xs md:text-sm font-bold text-zinc-800 dark:text-zinc-200 tracking-tight">
                         {isOpen ? 'Close Settings' : 'Spider Settings'}
                     </span>
                 </button>
@@ -111,15 +111,15 @@ export default function SpiderControls({ config, onChange }: SpiderControlsProps
                             initial={{ opacity: 0, scale: 0.9, y: -20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                            className="w-80 p-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-2xl border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] overflow-hidden"
+                            className="w-[calc(100vw-2rem)] sm:w-80 max-h-[calc(100vh-8rem)] overflow-y-auto p-5 md:p-6 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-2xl border border-zinc-200 dark:border-zinc-800 rounded-3xl md:rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)]"
                         >
-                            <div className="mb-6 flex justify-between items-start">
+                            <div className="mb-4 md:mb-6 flex justify-between items-start">
                                 <div>
-                                    <h3 className="text-xl font-black text-zinc-900 dark:text-white tracking-tighter">Controller</h3>
-                                    <p className="text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-black tracking-widest mt-1">Environmental Parameters</p>
+                                    <h3 className="text-lg md:text-xl font-black text-zinc-900 dark:text-white tracking-tighter">Controller</h3>
+                                    <p className="text-[9px] md:text-[10px] text-zinc-400 dark:text-zinc-500 uppercase font-black tracking-widest mt-1">Environmental Parameters</p>
                                 </div>
-                                <div className="p-2 bg-zinc-100 dark:bg-zinc-800 rounded-xl">
-                                    <Settings2 size={16} className="text-zinc-400" />
+                                <div className="p-1.5 md:p-2 bg-zinc-100 dark:bg-zinc-800 rounded-xl">
+                                    <Settings2 size={14} className="md:w-4 md:h-4 text-zinc-400" />
                                 </div>
                             </div>
 
@@ -198,8 +198,8 @@ export default function SpiderControls({ config, onChange }: SpiderControlsProps
                                 <button
                                     onClick={() => updateConfig('showGrid', !config.showGrid)}
                                     className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl transition-all shadow-sm ${config.showGrid
-                                            ? 'bg-zinc-900 dark:bg-white text-white dark:text-zinc-900'
-                                            : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-400 dark:text-zinc-500'
+                                        ? 'bg-zinc-900 dark:bg-white text-white dark:text-zinc-900'
+                                        : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-400 dark:text-zinc-500'
                                         }`}
                                 >
                                     <Grid3X3 size={14} />
